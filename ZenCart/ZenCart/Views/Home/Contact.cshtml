@@ -1,0 +1,50 @@
+﻿@model ZenCart.Models.Home.Contact
+@{
+    ViewBag.Title = "Contact";
+}
+
+<link href="~/css/contact_us.css" rel="stylesheet" />
+
+<div class="contact-content">
+    <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p class="contact-description">Feel free to reach out to us with any questions or inquiries. Our team is here to help.</p>
+        <p class="contact-address">
+            <strong>Address:</strong><br>
+            123 Main Street,<br>
+            City, State, ZIP<br>
+            Country
+        </p>
+        <p class="contact-phone">
+            <strong>Phone:</strong><br>
+            +1 (123) 456-7890
+        </p>
+        <p class="contact-email">
+            <strong>Email:</strong><br>
+            info@example.com
+        </p>
+    </div>
+
+    <div class="contact-form">
+        @using (Html.BeginForm("SendEmail", "Contact", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter your name" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Enter your email" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Message)
+                @Html.TextAreaFor(model => model.Message, new { @class = "form-control", rows = 5, placeholder = "Enter your message" })
+                @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
+        }
+    </div>
+</div>

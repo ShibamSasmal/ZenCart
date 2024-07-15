@@ -1,0 +1,359 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Project\\ZenCart\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|d:\\project\\zencart\\zencart\\views\\order\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\order\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|d:\\project\\zencart\\zencart\\views\\cart\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\cart\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|d:\\project\\zencart\\zencart\\controllers\\sweetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\sweetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\addresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|d:\\project\\zencart\\zencart\\views\\address\\addaddress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\address\\addaddress.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\controllers\\wishlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\wishlistcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|d:\\project\\zencart\\zencart\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\product\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\product\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\order\\allorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\order\\allorders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\cart\\orderconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\cart\\orderconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\cart\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\cart\\cart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\models\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\models\\userprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|D:\\Project\\ZenCart\\zencart\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A060AC36-70DA-4814-87BC-1787E5B832C0}|ZenCart\\ZenCart.csproj|solutionrelative:zencart\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\OrderController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAswA8BAABcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T14:37:44.597Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\CartController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\CartController.cs",
+              "ViewState": "AQIAAJ0AAAAAAAAAAAAEwJAAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-15T16:42:34.864Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WishlistController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\WishlistController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\WishlistController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\WishlistController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\WishlistController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T20:06:05.663Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T17:18:02.789Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAACIAAAAASJmZmZkMwCgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T17:07:29.812Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Payment.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Order\\Payment.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Order\\Payment.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Order\\Payment.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Order\\Payment.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T16:27:43.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Payment.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\Payment.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Cart\\Payment.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\Payment.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Cart\\Payment.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAwBcAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T16:21:00.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SweetController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\SweetController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\SweetController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\SweetController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\SweetController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T16:14:53.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddAddress.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Address\\AddAddress.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Address\\AddAddress.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Address\\AddAddress.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Address\\AddAddress.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T16:07:25.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T13:08:04.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "OrderConfirmation.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\OrderConfirmation.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Cart\\OrderConfirmation.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\OrderConfirmation.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Cart\\OrderConfirmation.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T12:01:34.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "UserProfile.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Models\\UserProfile.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Models\\UserProfile.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Models\\UserProfile.cs",
+              "RelativeToolTip": "ZenCart\\Models\\UserProfile.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T07:44:31.847Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Models\\User.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Models\\User.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Models\\User.cs",
+              "RelativeToolTip": "ZenCart\\Models\\User.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAA1wAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T09:10:42.93Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Cart.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\Cart.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Cart\\Cart.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Cart\\Cart.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Cart\\Cart.cshtml",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAAAAsAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-19T06:38:52.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AllProducts.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Product\\AllProducts.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Product\\AllProducts.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Product\\AllProducts.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Product\\AllProducts.cshtml",
+              "ViewState": "AQIAABsBAAAAAAAAAAAmwCsBAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-19T12:23:00.002Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddressController.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\AddressController.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Controllers\\AddressController.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Controllers\\AddressController.cs",
+              "RelativeToolTip": "ZenCart\\Controllers\\AddressController.cs",
+              "ViewState": "AQIAADsAAAAAAAAAAAAgwEAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-21T09:11:07.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AllOrders.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Order\\AllOrders.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Order\\AllOrders.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Order\\AllOrders.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Order\\AllOrders.cshtml",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACAAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-19T09:36:50.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Product\\Details.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Product\\Details.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Product\\Details.cshtml",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAAFEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-21T17:48:08.829Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "ZenCart\\Models\\Cart.cs",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Models\\Cart.cs",
+              "RelativeToolTip": "ZenCart\\Models\\Cart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-20T19:56:05.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "D:\\Project\\ZenCart\\ZenCart\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "ZenCart\\Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "D:\\Project\\ZenCart\\ZenCart\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "ZenCart\\Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-20T18:42:24.861Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

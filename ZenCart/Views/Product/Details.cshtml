@@ -1,0 +1,180 @@
+﻿@model ZenCart.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/ProductDetails.css" rel="stylesheet" />
+<div id="addToCartSuccess" class="alert alert-success alert-dismissible fade show" role="alert" style="display: none; margin-top:50px;">
+    Product added to cart successfully!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="product-details">
+                <img src="@Model.ImageUrl" class="product-image img-fluid" alt="@Model.Name" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-info mt-5">
+                <h2>@Model.Name</h2>
+                <p>@Model.Description</p>
+                <p><strong>Price: </strong>$@Model.Price</p>
+
+                @*<div class="size-options">
+                            <label for="size">Size:</label>
+                            <div class="btn-group-toggle" data-toggle="buttons">
+                            @Html.RadioButtonFor(model => model.Size, "S", new { id = "sizeS", @class = "btn btn-outline-secondary size-btn" }) S
+                            @Html.RadioButtonFor(model => model.Size, "M", new { id = "sizeM", @class = "btn btn-outline-secondary size-btn" }) M
+                            @Html.RadioButtonFor(model => model.Size, "L", new { id = "sizeL", @class = "btn btn-outline-secondary size-btn" }) L
+                            @Html.RadioButtonFor(model => model.Size, "XL", new { id = "sizeXL", @class = "btn btn-outline-secondary size-btn" }) XL
+                            @Html.RadioButtonFor(model => model.Size, "XXL", new { id = "sizeXXL", @class = "btn btn-outline-secondary size-btn" }) XXL
+                        </div>
+                    </div>*@
+
+                <div class="size-options">
+                    <label for="size">Size:</label>
+                    <div class="btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" class="size-btn" name="size" id="sizeS" autocomplete="off" value="S"> S
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" class="size-btn" name="size" id="sizeM" autocomplete="off" value="M"> M
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" class="size-btn" name="size" id="sizeL" autocomplete="off" value="L"> L
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" class="size-btn" name="size" id="sizeXL" autocomplete="off" value="XL"> XL
+                        </label>
+                        <label class="btn btn-outline-secondary">
+                            <input type="radio" class="size-btn" name="size" id="sizeXXL" autocomplete="off" value="XXL"> XXL
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Quantity Dropdown -->
+                @*<div class="quantity-options mt-3">
+                        <label for="quantity">Quantity:</label>
+                        <select class="form-control" id="quantity" name="quantity">
+                            @for (var i = 1; i <= 10; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+                    </div>*@
+                <!-- Form for adding to cart -->
+                <!--<form id="addToCartForm" action="@Url.Action("AddToCart", "Cart", new {productId = Model.P_Id,})" method="post">
+                <input type="hidden" id="productId" name="productId" value="@Model.P_Id" />
+                <button type="submit" class="btn btn-primary mt-3" id="addToCartBtn">Add to Cart</button>-->
+                <!-- Place Order Button -->
+                <!--</form>-->
+
+            <form id="addToCartForm" action="@Url.Action("AddToCart", "Cart")" method="post">
+                @Html.AntiForgeryToken()
+                <input type="hidden" id="productId" name="productId" value="@Model.P_Id" />
+                <input type="hidden" id="size" name="size" value="" />
+                <div>
+                    <label for="quantity">Quantity:</label>
+                    <select class="form-control" id="quantity" name="quantity">
+                        @for (var i = 1; i <= 10; i++)
+                        {
+                            <option value="@i">@i</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" id="addToCartBtn">Add to Cart</button>
+                <button type="submit" class="btn btn-success mt-3 ml-3" id="addToOrder" formaction="@Url.Action("AddOrder", "Order")">Place Order</button>
+            </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@*<script>
+        $(document).ready(function () {
+            $('#addToCartBtn').click(function (e) {
+                var sizeSelected = $('.size-btn:checked').length > 0;
+                var quantitySelected = $('#quantity').val() != null;
+
+                if (!sizeSelected || !quantitySelected) {
+                    e.preventDefault(); // Prevent form submission
+                    alert('Please select size and quantity before adding to cart.');
+                }
+            });
+
+            // Set default quantity to 1 if no quantity selected
+            $('#quantity').val(1);
+        });
+    </script>*@
+@*<script>
+
+        $(document).ready(function () {
+            $('#addToCartBtn').click(function (e) {
+                var sizeSelected = $('.size-btn:checked').length > 0;
+                var quantitySelected = $('#quantity').val() != null;
+
+                if (!sizeSelected || !quantitySelected) {
+                    e.preventDefault(); // Prevent form submission
+                    alert('Please select size and quantity before adding to cart.');
+                } else {
+                    // Set selected size
+                    var selectedSize = $('.size-btn:checked').val();
+                    $('#size').val(selectedSize);
+
+                    // Set selected quantity
+                    var selectedQuantity = $('#quantity').val();
+                    $('#quantity').val(selectedQuantity);
+                }
+            });
+
+            // Set default quantity to 1 if no quantity selected
+            $('#quantity').val(1);
+        });
+    </script>*@
+
+<script>
+    $(document).ready(function () {
+        $('#addToCartBtn').click(function (e) {
+            var sizeSelected = $('.size-btn:checked').length > 0;
+            var quantitySelected = $('#quantity').val() !== "";
+
+            if (!sizeSelected || !quantitySelected) {
+                e.preventDefault(); // Prevent form submission
+                alert('Please select size and quantity before adding to cart.');
+            } else {
+                // Set selected size
+                var selectedSize = $('.size-btn:checked').val();
+                $('#size').val(selectedSize);
+                $('#addToCartSuccess').fadeIn();
+
+                // Hide success message after 5 seconds
+                setTimeout(function () {
+                    $('#addToCartSuccess').fadeOut();
+                }, 5000);
+            }
+        });
+
+        $('#addToOrder').click(function (e) {
+            var sizeSelected = $('.size-btn:checked').length > 0;
+            var quantitySelected = $('#quantity').val() !== "";
+
+            if (!sizeSelected || !quantitySelected) {
+                e.preventDefault(); // Prevent form submission
+                alert('Please select size and quantity before adding to order.');
+            } else {
+                // Set selected size
+                var selectedSize = $('.size-btn:checked').val();
+                $('#size').val(selectedSize);
+            }
+        });
+    });
+</script>

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ZenCart.Models.Address>
+
+@{
+    ViewBag.Title = "My Addresses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/CartStyle.css" rel="stylesheet" />
+
+@Html.Raw(TempData["DeleteMessage"])
+
+<p>
+    @Html.ActionLink("Add Address", "AddAddress", null, new { @class = "btn btn-success" })
+</p>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card mb-3 mt-4" data-addressid="@item.AddressId">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.FullName)</h5>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.StreetAddress)</p>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State), @Html.DisplayFor(modelItem => item.PostalCode)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.PhoneNo)</p>
+                                <p class="card-text">@Html.DisplayFor(modelItem => item.Country)</p>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            @Html.ActionLink("Edit", "EditAddress", new { id = item.AddressId }, new { @class = "btn btn-primary btn-sm mr-1" })
+                           @* @Html.ActionLink("Details", "Details", new { id = item.AddressId }, new { @class = "btn btn-info btn-sm mr-1" })*@
+                            <button class="btn btn-danger btn-sm removeAddress" type="button" data-toggle="modal" data-target="#removeAddressConfirmationModal" data-addressid="@item.AddressId">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="modal fade" id="removeAddressConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="removeAddressConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="removeAddressConfirmationModalLabel">Remove Address</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this address?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" id="confirmRemoveAddressBtn">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Function to remove address via AJAX
+            function removeAddress(addressId) {
+                $.ajax({
+                    url: '@Url.Action("RemoveAddress", "Address")',
+                    type: 'POST',
+                    data: { addressId: addressId },
+                    success: function (response) {
+                        $(`.card[data-addressid='${addressId}']`).remove();
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error
+                    }
+                });
+            }
+
+            // Event handler for when user confirms removal
+            $('#confirmRemoveAddressBtn').click(function () {
+                var addressId = $(this).data('addressid');
+                removeAddress(addressId);
+                location.reload();
+            });
+
+            // Event handler for when the modal is shown
+            $('#removeAddressConfirmationModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var addressId = button.data('addressid');
+                var modal = $(this);
+                modal.find('#confirmRemoveAddressBtn').data('addressid', addressId);
+            });
+
+            $(".btn-secondary").click(function () {
+                $('#removeAddressConfirmationModal').modal('hide');
+            });
+        });
+    </script>
+}

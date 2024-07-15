@@ -1,0 +1,63 @@
+﻿@model List<ZenCart.Models.Order>
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Payment</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3>Select Payment Method</h3>
+
+            @using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <!-- Add hidden input fields for productId and quantity -->
+                @Html.HiddenFor(model => model[0].OrderItems.First().ProductId)
+                @Html.HiddenFor(model => model[0].OrderItems.First().Quantity)
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" value="CashOnDelivery" checked>
+                    <label class="form-check-label" for="cashOnDelivery">
+                        Cash on Delivery
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="UPI">
+                    <label class="form-check-label" for="upi">
+                        UPI
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="netBanking" value="NetBanking">
+                    <label class="form-check-label" for="netBanking">
+                        Net Banking
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="float-left" style="margin-top:20px">Total Amount: $ @ViewBag.TotalAmount</p>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary float-right mt-3" onclick="return confirmOrder();">Place Order</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmOrder() {
+        var paymentMethod = $('input[name="paymentMethod"]:checked').val();
+        if (!paymentMethod) {
+            alert('Please select a payment method.');
+            return false;
+        }
+        return confirm('Are you sure you want to place the order?');
+    }
+</script>

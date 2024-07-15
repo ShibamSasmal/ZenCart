@@ -1,0 +1,71 @@
+﻿@model ZenCart.Models.UserProfile
+
+@{
+    ViewBag.Title = "Manage Account";
+}
+@Html.Raw(TempData["UpdateMessage"])
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<div class="container" style="margin-top:84px">
+    <div class="card mb-3">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <h5 class="card-title">@ViewBag.Title</h5>
+            <a href="@Url.Action("EditProfile", "Account")" class="btn btn-link">Edit</a>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Username:</strong> @Model.Username</p>
+                    <p><strong>Email:</strong> @Model.Email</p>
+                    <p><strong>Mobile No.:</strong> @Model.Mobile_No</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <a class="dropdown-item" href="@Url.Action("Cart","Cart")"><i class="fas fa-shopping-cart"></i> <span class="dropdown-text"> Cart</span></a>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3 ml-md-3">
+                <div class="card-body">
+                    <div>
+                        <a class="dropdown-item" href="@Url.Action("AllOrders","Order")"><i class="fas fa-shopping-bag"></i><span class="dropdown-text"> My Orders</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-body">
+
+                    <div>
+                        <a class="dropdown-item" href="@Url.Action("AddressList","Address")"><i class="bi bi-house-add"></i></i><span class="dropdown-text"> Shopping Address</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-3 ml-md-3">
+                <div class="card-body">
+                    <div>
+                        <form action="@Url.Action("Logout", "Account")" method="post" id="logoutForm">
+                            @Html.AntiForgeryToken()
+                            <button class="dropdown-item" type="submit">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

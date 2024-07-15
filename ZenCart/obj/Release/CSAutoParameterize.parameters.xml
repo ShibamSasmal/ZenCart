@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ZenCartEntities-Web.config Connection String" description="ZenCartEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models..csdl|res://*/Models..ssdl|res://*/Models..msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-J8R1LU0L;initial catalog=ZenCart;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\ZenCart\\ZenCart\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenCartEntities']/@connectionString" />
+  </parameter>
+  <parameter name="ZenCartEntities1-Web.config Connection String" description="ZenCartEntities1 Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/Models.ZenCartDB.csdl|res://*/Models.ZenCartDB.ssdl|res://*/Models.ZenCartDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=LAPTOP-J8R1LU0L;initial catalog=ZenCart;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Project\\ZenCart\\ZenCart\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ZenCartEntities1']/@connectionString" />
+  </parameter>
+</parameters>

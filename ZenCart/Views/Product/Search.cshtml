@@ -1,0 +1,26 @@
+﻿
+@model List<ZenCart.Models.Product>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    
+<h2>Search Results</h2>
+
+@foreach (var product in Model)
+{
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <div style="flex: 0 0 auto; margin-right: 20px;">
+             <a href="@Url.Action("Details", "Product",new { id = product.P_Id })">
+                <img src="@Url.Content(product.ImageUrl)" alt="Product Image" style="max-width: 100px; max-height: 100px;" />
+            </a> 
+        </div>
+        <div style="flex: 1 1 auto; text-decoration:none">
+            <a href="@Url.Action("Details", "Product",new { id = product.P_Id })" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                @product.Name
+            <p>@product.Description</p>
+            </a>
+            @*<h3>@product.Name</h3>*@
+        </div>
+    </div>
+}
+

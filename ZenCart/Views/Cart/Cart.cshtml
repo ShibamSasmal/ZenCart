@@ -1,0 +1,183 @@
+﻿@model List<ZenCart.Models.Cart>
+
+@{
+    ViewBag.Title = "Shopping Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/CartStyle.css" rel="stylesheet" />
+
+<h2>Shopping Cart</h2>
+
+@*@if (TempData["Message"] != null)
+    {
+        <script>alert("@TempData["Message"] ");</script>
+    }*@
+
+
+
+
+
+<div class="container">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="card mb-3 mt-4" data-cartitemid="@item.cartId">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="@item.Product.ImageUrl" class="img-fluid rounded-start cart-image" alt="@item.Product.Name">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Product.Name</h5>
+                            <p class="card-text">Description: @item.Product.Description</p>
+                            <p class="card-text">Size: @item.Size</p>
+                            <p class="card-text">Price: $<span class="price">@(item.Product.Price)</span></p>
+                            <div class="quantity-controls">
+                                <button class="btn btn-outline-secondary decreaseQty" type="button">-</button>
+                                <input type="text" class="form-control text-center quantity quantity-input" value="@item.Quantity" readonly>
+                                <button class="btn btn-outline-secondary increaseQty" type="button">+</button>
+                                <!--<button class="btn removeItem" type="button">Remove</button>-->
+                                @* <button class="btn removeItem" type="button" data-cartitemid="@item.cartId">Remove</button>*@
+                                <button class="btn removeItem" type="button" data-toggle="modal" data-target="#removeConfirmationModal" data-cartitemid="@item.cartId">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+<div class="final-check d-flex justify-content-between">
+    <div class="total-price">Total Price: $<span id="totalPrice"></span></div>
+
+    @*  <a href="@Url.Action("PlaceOrder", "Cart")" class="btn btn-primary">Proceed to Checkout</a>*@
+
+    @using (Html.BeginForm("CheckAddress", "Cart", FormMethod.Post))
+    {
+
+            <button type="submit" class="btn btn-primary" >Proceed to Checkout</button>
+     }
+</div>
+    }
+    else
+    {
+        <p>Your shopping cart is empty.</p>
+    }
+</div>
+<div class="modal fade" id="removeConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="removeConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="removeConfirmationModalLabel">Remove Item</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this item?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" id="confirmRemoveBtn">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            updateTotalPrice();
+
+            // Function to remove cart item via AJAX
+            function removeCartItem(cartItemId) {
+                $.ajax({
+                    url: '@Url.Action("RemoveFromCart", "Cart")',
+                    type: 'POST',
+                    data: { cartItemId: cartItemId },
+                    success: function (response) {
+                        // Optionally, you can remove the corresponding card from the UI upon successful removal
+                        $(`.card[data-cartitemid='${cartItemId}']`).remove();
+                        // Then update the total price
+                        updateTotalPrice();
+                    },
+                    error: function (xhr, status, error) {
+                        // Handle error
+                    }
+                });
+            }
+
+            // Event handler for when user confirms removal
+            $('#confirmRemoveBtn').click(function () {
+                var cartItemId = $(this).data('cartitemid');
+                removeCartItem(cartItemId);
+                //window.location.href = '@Url.Action("Cart", "Cart")';
+                location.reload();
+
+            });
+
+            // Event handler for when the modal is hidden
+            $('#removeConfirmationModal').on('hidden.bs.modal', function () {
+                // Redirect to the cart page
+                window.location.href = '@Url.Action("Cart", "Cart")';
+            });
+
+
+
+            $(".btn-secondary").click(function () {
+                $('#removeConfirmationModal').modal('hide');
+            });
+
+            $(".increaseQty").click(function () {
+                var quantityElement = $(this).closest('.card-body').find('.quantity');
+                var quantity = parseInt(quantityElement.val());
+                quantityElement.val(quantity + 1);
+                updateCartItemQuantity($(this).closest('.card').data('cartitemid'), quantity + 1);
+                updateTotalPrice();
+            });
+
+            $(".decreaseQty").click(function () {
+                var quantityElement = $(this).closest('.card-body').find('.quantity');
+                var quantity = parseInt(quantityElement.val());
+                if (quantity > 1) {
+                    quantityElement.val(quantity - 1);
+                    updateCartItemQuantity($(this).closest('.card').data('cartitemid'), quantity - 1);
+                    updateTotalPrice();
+                }
+            });
+
+            $(".removeItem").click(function () {
+                var cartItemId = $(this).data('cartitemid');
+                // Show the modal for confirmation
+                $('#confirmRemoveBtn').data('cartitemid', cartItemId);
+                $('#removeConfirmationModal').modal('show');
+            });
+
+            function updateCartItemQuantity(cartItemId, quantity) {
+                $.ajax({
+                    url: '@Url.Action("UpdateCart", "Cart")',
+                    type: 'POST',
+                    data: { cartItemId: cartItemId, quantity: quantity },
+                    success: function (response) {
+
+                    },
+                    error: function (xhr, status, error) {
+
+                    }
+                });
+            };
+
+            function updateTotalPrice() {
+                var totalPrice = 0;
+                $(".card").each(function () {
+                    var price = parseFloat($(this).find('.price').text().replace('$', ''));
+                    var quantity = parseInt($(this).find('.quantity').val());
+                    var itemTotalPrice = price * quantity;
+                    totalPrice += itemTotalPrice;
+                    $(this).find('.item-total-price').text(itemTotalPrice.toFixed(2));
+                });
+                $("#totalPrice").text(totalPrice.toFixed(2));
+            }
+        });
+    </script>
+}

@@ -1,0 +1,51 @@
+﻿@model ZenCart.Models.Order
+
+@{
+    ViewBag.Title = "Thank You for Your Order";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .modal-dialog-centered {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1" role="dialog" aria-labelledby="orderSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderSuccessModalLabel">Order Confirmation</h5>
+                </div>
+                <div class="modal-body">
+                    <h4 class="text-success">Thank You for Your Order!</h4>
+                    <p>Your order has been successfully placed.</p>
+                    @*<p>Order Number: <strong>@Model.OrderId</strong></p>*@
+                    <p>You will be redirected to the home page in a few seconds...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="@Html.Raw("https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js")"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#orderSuccessModal').modal('show');
+            setTimeout(function () {
+                window.location.href = '@Url.Action("Index", "Home")';
+            }, 2000); 
+        });
+    </script>
+</body>
+</html>

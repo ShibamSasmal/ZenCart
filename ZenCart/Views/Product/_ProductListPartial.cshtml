@@ -1,0 +1,73 @@
+﻿@model List<ZenCart.Models.Product>
+
+@foreach (var product in Model)
+{
+    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+        <div class="block2">
+            <div class="block2-pic hov-img0">
+                <img src="@Url.Content(product.ImageUrl)" alt="IMG-PRODUCT">
+                <a href="@Url.Action("Details", "Product", new { id = product.P_Id })" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
+                    Quick View
+                </a>
+            </div>
+            <div class="block2-txt flex-w flex-t p-t-14">
+                <div class="block2-txt-child1 flex-col-l">
+                    <a href="@Url.Action("Details", "Product", new { id = product.P_Id })" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                        @product.Name
+                    </a>
+                    <span class="stext-105 cl3">
+                        $ @product.Price
+                    </span>
+                </div>
+                <div class="block2-txt-child2 flex-r p-t-3">
+
+                    @{
+                        var addedwishcss = $"{@product.P_Id}js-addedwish-b2";
+                        <a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2 @addedwishcss" data-product-id="@product.P_Id">
+                            <img class="icon-heart1 dis-block trans-04" src="~/images/icons/icon-heart-01.png" alt="ICON">
+                            <img class="icon-heart2 dis-block trans-04 ab-t-l" src="~/images/icons/icon-heart-02.png" alt="ICON">
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.btn-addwish-b2').on('click', function (e) {
+    e.preventDefault(); // Prevent the default action of the anchor tag
+
+    var productId = $(this).data('product-id'); // Get the product ID from data attribute
+
+
+    $.ajax({
+        url: '@Url.Action("AddToWishlist", "Wishlist")',
+        method: 'POST',
+        data: { productId: productId },
+        success: function (data) {
+            console.log("Response data:", data);
+            // Check response from server
+            if (data == "Success") {
+                $('.' + productId + 'js-addedwish-b2').toggleClass('js-addedwish-b2');
+                // Show success notification
+                toastr.success('Item added to wishlist successfully.');
+
+            } else {
+                // Show error notification
+                $('.' + productId + 'js-addedwish-b2').toggleClass('js-addedwish-b2');
+                toastr.error('Item is already in the wishlist.');
+            }
+        },
+        error: function (xhr, status, error) {
+            // Handle errors if any
+            console.error(xhr.responseText);
+        }
+    });
+});
+
+    });
+</script>

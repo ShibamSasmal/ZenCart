@@ -1,0 +1,47 @@
+﻿
+.product-details {
+    margin-top: 32px;
+}
+.product-image {
+    max-width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    margin-top: 32px;
+}
+
+
+.product-info {
+    padding: 20px;
+}
+
+
+.btn-primary {
+    margin-right: 10px;
+}
+
+
+.order-section {
+    margin-top: 30px;
+}
+
+
+.form-control {
+    width: 100%;
+}
+
+.size-options {
+    margin-bottom: 15px; 
+}
+
+.btn-group-toggle label.btn {
+    border: 1px dotted #aaa;
+}
+.size-options .btn-group-toggle label.btn {
+    border: 1px dotted #6c757d;
+    margin-right: 4px; /* Adjust spacing between buttons */
+}
+
+.size-options .btn-group-toggle label.active {
+    background-color: #6c757d; /* Change background color when button is active */
+    color: #fff; /* Change text color when button is active */
+}

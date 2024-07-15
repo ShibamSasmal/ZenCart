@@ -1,0 +1,42 @@
+﻿@model ZenCart.Models.Order
+@{
+    ViewBag.Title = "Order Confirmation";
+}
+
+<h2 class="text-center">Order Confirmation</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Thank you for your order!</h3>
+            <p>Your order has been placed successfully.</p>
+            <p>Order ID: @Model.OrderId</p>
+            <p>Order Date: @Model.OrderDate</p>
+            <p>Total Amount: $@Model.TotalAmount</p>
+            <p>Shipping Address: @Model.Address.StreetAddress, @Model.Address.City, @Model.Address.State, @Model.Address.PostalCode, @Model.Address.Country</p>
+
+            <h4>Order Details:</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.OrderItems)
+                    {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>$@item.Price</td>
+                            <td>$@(item.Quantity * item.Price)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

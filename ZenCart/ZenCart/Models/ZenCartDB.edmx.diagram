@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e874be92be65496bbf3f68210731ac12" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="ZenCartModel.User" Width="1.5" PointX="0.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ZenCartModel.Product" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ZenCartModel.Cart" Width="1.5" PointX="5.625" PointY="0.75" />
+        <AssociationConnector Association="ZenCartModel.FK_Cart_Products" />
+        <AssociationConnector Association="ZenCartModel.FK_Cart_Users" />
+        <EntityTypeShape EntityType="ZenCartModel.Address" Width="1.5" PointX="3" PointY="5" />
+        <AssociationConnector Association="ZenCartModel.FK_Addresses_Users" />
+        <EntityTypeShape EntityType="ZenCartModel.Order" Width="1.5" PointX="5.25" PointY="4.125" />
+        <AssociationConnector Association="ZenCartModel.FK_Orders_Addresses" />
+        <AssociationConnector Association="ZenCartModel.FK_Orders_Users" />
+        <EntityTypeShape EntityType="ZenCartModel.OrderItem" Width="1.5" PointX="8.5" PointY="2.625" />
+        <AssociationConnector Association="ZenCartModel.FK_OrderItems_Orders" />
+        <AssociationConnector Association="ZenCartModel.FK_OrderItems_Products" />
+        <EntityTypeShape EntityType="ZenCartModel.WishlistItem" Width="1.5" PointX="10.75" PointY="0.5" />
+        <AssociationConnector Association="ZenCartModel.FK__WishlistI__Produ__0D7A0286" />
+        <AssociationConnector Association="ZenCartModel.FK__WishlistI__UserI__0C85DE4D" />
+        <EntityTypeShape EntityType="ZenCartModel.Category" Width="1.5" PointX="1.125" PointY="9.375" />
+        <AssociationConnector Association="ZenCartModel.FK_Product_Categories" />
+        <EntityTypeShape EntityType="ZenCartModel.ResetToken" Width="1.5" PointX="2.75" PointY="12.25" />
+        <AssociationConnector Association="ZenCartModel.FK_User_ResetTokens" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

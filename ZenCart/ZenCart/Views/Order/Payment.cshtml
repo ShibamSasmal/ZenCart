@@ -1,0 +1,48 @@
+﻿@model List<ZenCart.Models.Order>
+@{
+    ViewBag.Title = "Payment";
+    
+}
+
+<h2 class="text-center">Payment</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h3>Select Payment Method</h3>
+
+            @using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="cashOnDelivery" value="CashOnDelivery" checked>
+                    <label class="form-check-label" for="cashOnDelivery">
+                        Cash on Delivery
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="UPI">
+                    <label class="form-check-label" for="upi">
+                        UPI
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="paymentMethod" id="netBanking" value="NetBanking">
+                    <label class="form-check-label" for="netBanking">
+                        Net Banking
+                    </label>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p class="float-left" style="margin-top:20px">Total Amount: $ @ViewBag.TotalAmount</p>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary float-right mt-3">Place Order</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model ZenCart.Models.User
+@{
+    ViewBag.Title = "Signup";
+}
+<link href="~/css/signup_style.css" rel="stylesheet" />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "mx-auto" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <h4 class="text-center">Signup</h4>
+        <div class="mb-3 mt-5">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @id = "exampleInputEmail1" })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "exampleInputEmail1" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(model => model.Mobile_No, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Mobile_No, new { @class = "form-control", @id = "exampleInputPhoneNumber" })
+            @Html.ValidationMessageFor(model => model.Mobile_No, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "form-label" })
+            <div class="input-group">
+                @Html.PasswordFor(model => model.PasswordHash, new { @class = "form-control", @id = "exampleInputPassword1" })
+                <button class="btn" type="button" id="togglePassword">
+                    <i class="far fa-eye" id="toggleIcon"></i>
+                </button>
+            </div>
+            @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+        </div>
+        @*<div class="mb-3">
+            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "form-label" })
+            <div class="input-group">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control", @id = "exampleInputConfirmPassword1" })
+                <button class="btn" type="button" id="toggleConfirmPassword">
+                    <i class="far fa-eye" id="toggleConfirmIcon"></i>
+                </button>
+            </div>
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>*@
+
+        <button type="submit" class="btn btn-primary mt-5">Signup</button>
+        <div class="mt-3 text-center">
+            <a href="@Url.Action("Login", "Account")" style="text-decoration: none; color: inherit;">Already have an account?<b> Login here. </b> </a>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-DtJ09M7lFrM2S/SGW2ee5mcKfS01GnKdOcvB/0j8qsiLwObhC7iF2WwXVU8ilC0yJLwy1yQIABhvuUEyCOGH6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('exampleInputPassword1');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove('far', 'fa-eye');
+                toggleIcon.classList.add('fas', 'fa-eye-slash');
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove('fas', 'fa-eye-slash');
+                toggleIcon.classList.add('far', 'fa-eye');
+            }
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+            const confirmPasswordInput = document.getElementById('exampleInputConfirmPassword1');
+            const toggleConfirmIcon = document.getElementById('toggleConfirmIcon');
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                toggleConfirmIcon.classList.remove('far', 'fa-eye');
+                toggleConfirmIcon.classList.add('fas', 'fa-eye-slash');
+            } else {
+                confirmPasswordInput.type = "password";
+                toggleConfirmIcon.classList.remove('fas', 'fa-eye-slash');
+                toggleConfirmIcon.classList.add('far', 'fa-eye');
+            }
+        });
+    </script>
+}

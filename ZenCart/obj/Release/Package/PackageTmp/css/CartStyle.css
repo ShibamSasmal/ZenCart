@@ -1,0 +1,23 @@
+﻿.cart-image {
+    height: 300px;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .quantity-controls .btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.875rem;
+    }
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+}
+
+.removeItem {
+    margin-left: auto;
+}

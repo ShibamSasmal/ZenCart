@@ -1,0 +1,96 @@
+﻿@model List<ZenCart.Models.WishlistItem>
+
+@{
+    ViewBag.Title = "My WishList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*@if (TempData["Message"] != null)
+    {
+        <script>alert("@TempData["Message"]");</script>
+    }*@
+<div class="container">
+    <h2 style="margin-top: 72px; margin-bottom: 15px"> My Wishlist</h2>
+    <table class="table">
+        @*<thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>*@
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.Product.ImageUrl" style="width: 100px; height: auto;" /></td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Description</td>
+                    <td>@item.Product.Price</td>
+                    <td>
+                        <button class="btn btn-danger remove-item" data-product-id="@item.ProductId">Remove</button>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Remove Item Modal -->
+<div class="modal fade" id="removeItemModal" tabindex="-1" role="dialog" aria-labelledby="removeItemModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="removeItemModalLabel">Remove Item</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove this item from your wishlist?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" id="confirmRemove">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+       $(document).ready(function () {
+         var productIdToRemove;
+
+            $(".remove-item").click(function () {
+                productIdToRemove = $(this).data('product-id');
+                $('#removeItemModal').modal('show');
+            });
+
+             $("#confirmRemove").click(function () {
+                    // Perform AJAX call to remove item from wishlist
+                    $.ajax({
+                        url: '@Url.Action("RemoveFromWishlist", "Wishlist")',
+                        type: 'POST',
+                        data: { productId: productIdToRemove },
+                        success: function (response) {
+                            // Reload the page after successful removal
+                            location.reload();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr.responseText);
+                            // Handle error
+                        }
+                    });
+             });
+
+           $(".btn-secondary").click(function () {
+               $('#removeItemModal').modal('hide');
+           });
+       });
+
+</script>

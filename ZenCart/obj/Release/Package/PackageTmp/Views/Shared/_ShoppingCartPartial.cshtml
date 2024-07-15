@@ -1,0 +1,17 @@
+﻿@model 
+
+@if (Model > 0)
+{
+    <div id="shopping-cart">
+        <h3>Shopping Cart</h3>
+        <p>Total Items: @Model</p>
+        <a href="@Url.Action("Index", "Cart")" class="btn btn-primary">View Cart</a>
+    </div>
+}
+else
+{
+    <div id="empty-cart">
+        <p>Your shopping cart is empty.</p>
+    </div>
+}
+

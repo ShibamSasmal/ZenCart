@@ -1,0 +1,64 @@
+﻿@model ZenCart.Models.UserLoginDto
+@{
+    ViewBag.Title = "Login";
+}
+<link href="~/css/login_style.css" rel="stylesheet" />
+@using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "mx-auto" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <h4 class="text-center">Login</h4>
+        <div class="mb-3 mt-5">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "form-label" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "exampleInputEmail1" })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="mb-3 position-relative">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "form-label" })
+            <div class="input-group">
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @id = "exampleInputPassword1" })
+                <button class="btn" type="button" id="togglePassword">
+                    <i class="far fa-eye" id="toggleIcon"></i>
+                </button>
+            </div>
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group form-check">
+            <div class="mb-3">
+                @Html.CheckBoxFor(x => x.RememberMe, new { @class = "form-check-input", @id = "exampleCheck1" })
+                @Html.LabelFor(x => x.RememberMe, new { @class = "form-check-label" })
+            </div>
+        </div>
+        <div class="form-text mt-3">
+            <a href="@Url.Action("ForgotPassword", "Account")" style="text-decoration: none; color: inherit;">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Login</button>
+        <div class="mt-3 text-center">
+            <a href="@Url.Action("Register", "Account")" style="text-decoration: none; color: inherit;">Don't have an account? <b>Sign up here.</b> </a>
+        </div>
+        <div>
+           <p style="color:red">@Html.Raw(Model?.ErrorMessage)</p>
+        </div>
+    </div>
+
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('exampleInputPassword1');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove('far', 'fa-eye');
+                toggleIcon.classList.add('fas', 'fa-eye-slash');
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove('fas', 'fa-eye-slash');
+                toggleIcon.classList.add('far', 'fa-eye');
+            }
+        });
+    </script>
+}

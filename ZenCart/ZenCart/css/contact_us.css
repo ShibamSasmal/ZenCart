@@ -1,0 +1,151 @@
+﻿body {
+    background-image: url('https://images.unsplash.com/photo-1698953929217-b866f4f7152e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner {
+    position: relative;
+    overflow: hidden;
+    z-index: -1; 
+    width: 100%;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+}
+
+.banner-heading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.contact-form {
+    position: relative;
+    max-width: 400px;
+    margin: 111px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    z-index: 2;
+    animation: fadeIn 1s ease-out;
+    
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 150px;
+}
+
+/* Style for submit button */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    .contact-header h1 {
+        font-size: 36px;
+        color: #333;
+    }
+
+.contact-description {
+    font-size: 18px;
+    color: #666;
+    margin-top: 30px;
+    line-height: 1.5;
+}
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contact-info {
+    width: 40%; 
+    padding-right: 20px; 
+    background-color: rgba(249, 249, 249, 0.8); 
+    border-radius: 5px; 
+    padding: 20px;
+
+}
+
+    .contact-info h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        margin-top: 81px;
+    }
+
+.contact-description,
+.contact-address,
+.contact-phone,
+.contact-email {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    width: 55%; 
+}
+
+.bg3 {
+    background-color: #222;
+    margin-top: 55px;
+    padding: 11px;
+}
+

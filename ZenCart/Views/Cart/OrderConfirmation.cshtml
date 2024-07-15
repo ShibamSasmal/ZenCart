@@ -1,0 +1,26 @@
+﻿@model ZenCart.Models.Order
+@{
+    ViewBag.Title = "Order Confirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Order Confirmation</h2>
+
+@if (Model != null)
+{
+    <div class="container">
+        <p>Your order has been successfully placed with the following details:</p>
+
+        <p><strong>Order ID:</strong> @Model.OrderId</p>
+        <p><strong>Order Date:</strong> @Model.OrderDate</p>
+        <p><strong>Total Amount:</strong> $@Model.TotalAmount</p>
+
+        <!-- Add more order details as needed -->
+
+        <p>Thank you for shopping with us!</p>
+    </div>
+}
+else
+{
+    <p>Sorry, unable to display order confirmation. Please try again later.</p>
+}

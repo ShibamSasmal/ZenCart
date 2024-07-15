@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZenCartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mobile_No" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="ZenCartModel.FK_Cart_Users" FromRole="User" ToRole="Cart" />
+    <NavigationProperty Name="Addresses" Relationship="ZenCartModel.FK_Addresses_Users" FromRole="User" ToRole="Address" />
+    <NavigationProperty Name="Orders" Relationship="ZenCartModel.FK_Orders_Users" FromRole="User" ToRole="Order" />
+    <NavigationProperty Name="WishlistItems" Relationship="ZenCartModel.FK__WishlistI__UserI__0C85DE4D" FromRole="User" ToRole="WishlistItem" />
+    <NavigationProperty Name="ResetTokens" Relationship="ZenCartModel.FK_User_ResetTokens" FromRole="User" ToRole="ResetToken" />
+  </EntityType>
+  <EntityContainer Name="ZenCartEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Products" EntityType="ZenCartModel.Product" />
+    <EntitySet Name="Carts" EntityType="ZenCartModel.Cart" />
+    <AssociationSet Name="FK_Cart_Products" Association="ZenCartModel.FK_Cart_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cart_Users" Association="ZenCartModel.FK_Cart_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <EntitySet Name="Addresses" EntityType="ZenCartModel.Address" />
+    <AssociationSet Name="FK_Addresses_Users" Association="ZenCartModel.FK_Addresses_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <EntitySet Name="Orders" EntityType="ZenCartModel.Order" />
+    <AssociationSet Name="FK_Orders_Addresses" Association="ZenCartModel.FK_Orders_Addresses">
+      <End Role="Address" EntitySet="Addresses" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Users" Association="ZenCartModel.FK_Orders_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="OrderItems" EntityType="ZenCartModel.OrderItem" />
+    <AssociationSet Name="FK_OrderItems_Orders" Association="ZenCartModel.FK_OrderItems_Orders">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderItems_Products" Association="ZenCartModel.FK_OrderItems_Products">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OrderItem" EntitySet="OrderItems" />
+    </AssociationSet>
+    <EntitySet Name="WishlistItems" EntityType="ZenCartModel.WishlistItem" />
+    <AssociationSet Name="FK__WishlistI__Produ__0D7A0286" Association="ZenCartModel.FK__WishlistI__Produ__0D7A0286">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="WishlistItem" EntitySet="WishlistItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WishlistI__UserI__0C85DE4D" Association="ZenCartModel.FK__WishlistI__UserI__0C85DE4D">
+      <End Role="User" EntitySet="Users" />
+      <End Role="WishlistItem" EntitySet="WishlistItems" />
+    </AssociationSet>
+    <EntitySet Name="Categories" EntityType="ZenCartModel.Category" />
+    <AssociationSet Name="FK_Product_Categories" Association="ZenCartModel.FK_Product_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <EntitySet Name="ResetTokens" EntityType="ZenCartModel.ResetToken" />
+    <AssociationSet Name="FK_User_ResetTokens" Association="ZenCartModel.FK_User_ResetTokens">
+      <End Role="User" EntitySet="Users" />
+      <End Role="ResetToken" EntitySet="ResetTokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="P_Id" />
+    </Key>
+    <Property Name="P_Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="ImageUrl" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Carts" Relationship="ZenCartModel.FK_Cart_Products" FromRole="Product" ToRole="Cart" />
+    <NavigationProperty Name="OrderItems" Relationship="ZenCartModel.FK_OrderItems_Products" FromRole="Product" ToRole="OrderItem" />
+    <NavigationProperty Name="WishlistItems" Relationship="ZenCartModel.FK__WishlistI__Produ__0D7A0286" FromRole="Product" ToRole="WishlistItem" />
+    <Property Name="CategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="ZenCartModel.FK_Product_Categories" FromRole="Product" ToRole="Category" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="cartId" />
+    </Key>
+    <Property Name="cartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="ZenCartModel.FK_Cart_Products" FromRole="Cart" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="ZenCartModel.FK_Cart_Users" FromRole="Cart" ToRole="User" />
+    <Property Name="Size" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Cart_Products">
+    <End Type="ZenCartModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ZenCartModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="P_Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cart_Users">
+    <End Type="ZenCartModel.User" Role="User" Multiplicity="1" />
+    <End Type="ZenCartModel.Cart" Role="Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressId" />
+    </Key>
+    <Property Name="AddressId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="StreetAddress" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="ZenCartModel.FK_Addresses_Users" FromRole="Address" ToRole="User" />
+    <NavigationProperty Name="Orders" Relationship="ZenCartModel.FK_Orders_Addresses" FromRole="Address" ToRole="Order" />
+    <Property Name="SelectedAddress" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Addresses_Users">
+    <End Type="ZenCartModel.User" Role="User" Multiplicity="1" />
+    <End Type="ZenCartModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalAmount" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Address" Relationship="ZenCartModel.FK_Orders_Addresses" FromRole="Order" ToRole="Address" />
+    <NavigationProperty Name="User" Relationship="ZenCartModel.FK_Orders_Users" FromRole="Order" ToRole="User" />
+    <NavigationProperty Name="OrderItems" Relationship="ZenCartModel.FK_OrderItems_Orders" FromRole="Order" ToRole="OrderItem" />
+  </EntityType>
+  <Association Name="FK_Orders_Addresses">
+    <End Type="ZenCartModel.Address" Role="Address" Multiplicity="1" />
+    <End Type="ZenCartModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="AddressId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Users">
+    <End Type="ZenCartModel.User" Role="User" Multiplicity="1" />
+    <End Type="ZenCartModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemId" />
+    </Key>
+    <Property Name="OrderItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <NavigationProperty Name="Order" Relationship="ZenCartModel.FK_OrderItems_Orders" FromRole="OrderItem" ToRole="Order" />
+    <NavigationProperty Name="Product" Relationship="ZenCartModel.FK_OrderItems_Products" FromRole="OrderItem" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_OrderItems_Orders">
+    <End Type="ZenCartModel.Order" Role="Order" Multiplicity="1" />
+    <End Type="ZenCartModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderId" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderItems_Products">
+    <End Type="ZenCartModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ZenCartModel.OrderItem" Role="OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="P_Id" />
+      </Principal>
+      <Dependent Role="OrderItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="WishlistItem">
+    <Key>
+      <PropertyRef Name="WishlistItemId" />
+    </Key>
+    <Property Name="WishlistItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="AddedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="ZenCartModel.FK__WishlistI__Produ__0D7A0286" FromRole="WishlistItem" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="ZenCartModel.FK__WishlistI__UserI__0C85DE4D" FromRole="WishlistItem" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__WishlistI__Produ__0D7A0286">
+    <End Type="ZenCartModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ZenCartModel.WishlistItem" Role="WishlistItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="P_Id" />
+      </Principal>
+      <Dependent Role="WishlistItem">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WishlistI__UserI__0C85DE4D">
+    <End Type="ZenCartModel.User" Role="User" Multiplicity="1" />
+    <End Type="ZenCartModel.WishlistItem" Role="WishlistItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WishlistItem">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="ZenCartModel.FK_Product_Categories" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Product_Categories">
+    <End Type="ZenCartModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="ZenCartModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ResetToken">
+    <Key>
+      <PropertyRef Name="resetId" />
+    </Key>
+    <Property Name="resetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="ResetToken1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="ZenCartModel.FK_User_ResetTokens" FromRole="ResetToken" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_ResetTokens">
+    <End Type="ZenCartModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="ZenCartModel.ResetToken" Role="ResetToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResetToken">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
